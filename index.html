@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <style>
+        </style>
+
+        <script src="../Snap.svg/dist/snap.svg.js"></script>
+
+        <script src="snapper.js"></script>
+
+        <script>
+
+            window.onload = function() {
+
+
+            var paperWidth = 1000,
+                paperHeight = 1000,
+                topMargin = 20,
+                trainWidth = 30,
+                trainLengthCM = 200,
+                trainColor = "#abe",
+                beta = 0.5,
+                frameWidth = 450,
+                frameHeight = 450,
+                frameStrokeWidth = 5;
+            var s = Snap(paperWidth, paperHeight);
+
+            // var frameCM = s.rect(paperWidth/2 - frameWidth, topMargin, frameWidth, frameHeight);
+            // frameCM.attr({
+            //     fill: "#0000",
+            //     stroke: "#000",
+            //     strokeWidth: frameStrokeWidth
+            // });
+            // console.log(frameCM);
+            // //frameCM.mytranslate(0,200);
+
+
+            // var b = new Element();
+            // b.log();  // 1
+
+
+            var s2 = s.circle(200,100,100);
+            s2.attr({fill: "#f002"});
+
+            var s1 = s.rect(0,0,100,100);
+            s1.attr({fill: "#000"});
+            s1.translate(25,75);
+            s1.moveToPoint(300,400);
+            s1.drag();
+            s2.drag();
+            s1.animate({cx: 600}, 1000);
+
+        }
+
+
+        </script>
+
+    </head>
+    <body>
+    </body>
+    <body>
