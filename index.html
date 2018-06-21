@@ -5,8 +5,8 @@
         <style>
         </style>
 
+        <script src="../numericJS/numeric-1.2.6.js"></script>
         <script src="../Snap.svg/dist/snap.svg.js"></script>
-
         <script src="snapper.js"></script>
 
         <script>
@@ -45,13 +45,14 @@
 
             var s1 = s.rect(0,0,100,100);
             s1.attr({fill: "#000"});
-            s1.translate(25,75);
-            s1.moveToPoint(300,400);
-            s1.drag();
-            s2.drag();
-            s1.animate({cx: 600}, 1000);
+            s1.center = [300,100];
 
-        }
+            s1.moveToPoint([300,400]);
+            // s1.drag();
+            // s2.drag();
+            // s1.animate({cx: 600}, 1000);
+
+            }
 
 
         </script>
