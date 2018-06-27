@@ -44,15 +44,15 @@
             s2 = s1.clone();
             s2.attr({fill: "#1002"});
             
-            M = s1.transform().globalMatrix;
-            console.log(M.clone());
-            //s1.animate({transform: "r30,0,0"}, 1000);
-            s1.rotate(10,[0,0]);
-            M2 = s1.transform().globalMatrix;
-            console.log(M2.clone());
+            // s1.rotate(25, [100,100]);
             
-            
-
+            s3 = s1.clone();
+            s3.attr({fill: "#0000"});
+            s3.translateBy([-100,-100]);
+            s3.rotate(25, [0,0]);
+            //s3.translateBy([100,100]);
+            M = s3.transform().globalMatrix;
+            s1.animate({transform: M}, 1000);
 
             }
 
