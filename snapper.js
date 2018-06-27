@@ -61,28 +61,36 @@ Snap.plugin(function (Snap, Element, Paper, glob, Fragment) {
 
                 
     Element.prototype.translateBy = function(v) {
-        dx = v[0]; dy = v[1];
         M = this.transform().globalMatrix;
-        M.translate(dx,dy);
+        M.translate(v[0],v[1]);
         return this.transform(M.toTransformString());
     };
 
 
     Element.prototype.moveToPoint = function(point) {
-        this.translateBy(numeric.sub(point, this.getCenter()));
+        this.translateBy(numeric.sub(point, this.center));
         return this;
     }
 
     Element.prototype.moveTo = function(target_el) {
-        return this.moveToPoint(target_el.getCenter());
+        return this.moveToPoint(target_el.center);
     }
 
 
-    // Element.prototype.rotate = function(angle, center) {
-    //     M = this.transform().globalMatrix;
-    //     M.rotate(angle, center.x, center.y);
-    //     return this.transform(M.toTransformString());
-    // }
+    Element.prototype.rotate = function(angle, center) {
+        // M = this.transform().globalMatrix;
+        // M.rotate(angle, center.x, center.y);
+        // return this.transform(M.toTransformString());
+        console.log("A", this.transform().globalMatrix);
+        this.translateBy([-center[0],-center[1]]);
+        console.log("B", this.transform().globalMatrix);
+        M = this.transform().globalMatrix;
+        M = M.rotate(angle,0,0);
+        this.transform(M);
+        console.log("C", this.transform().globalMatrix);
+        this.translateBy(center);
+        console.log("D", this.transform().globalMatrix);
+    }
 
     // Element.prototype.rotateInPlace = function(angle) {
     //     return this.rotate(angle, this.center);

@@ -4,7 +4,10 @@
     <head>
         <style>
         </style>
+        <!--<link rel='stylesheet' type='text/css' href='../mathquill-0.9.4/mathquill.css'>
 
+        <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+        <script src="../mathquill-0.9.4/mathquill.js"></script>-->
         <script src="../numericJS/numeric-1.2.6.js"></script>
         <script src="../Snap.svg/dist/snap.svg.js"></script>
         <script src="snapper.js"></script>
@@ -26,36 +29,37 @@
                 frameStrokeWidth = 5;
             var s = Snap(paperWidth, paperHeight);
 
-            // var frameCM = s.rect(paperWidth/2 - frameWidth, topMargin, frameWidth, frameHeight);
-            // frameCM.attr({
-            //     fill: "#0000",
-            //     stroke: "#000",
-            //     strokeWidth: frameStrokeWidth
-            // });
-            // console.log(frameCM);
-            // //frameCM.mytranslate(0,200);
 
-
-            // var b = new Element();
-            // b.log();  // 1
-
-
-            var s2 = s.circle(200,100,100);
-            s2.attr({fill: "#f002"});
 
             var s1 = s.rect(0,0,100,100);
-            s1.attr({fill: "#000"});
-            s1.center = [300,100];
+            s1.attr({fill: "#0059"});
+            //s1.center = [200,100];
 
-            s1.moveToPoint([300,400]);
-            // s1.drag();
-            // s2.drag();
-            // s1.animate({cx: 600}, 1000);
+            s1.moveToPoint([100,100]);
+            var w0 = s1.attr("width");
+            var h0 = Number(s1.attr("height"));
+            //console.log(w0, h0);
+            s1.drag();
+
+            s2 = s1.clone();
+            s2.attr({fill: "#1002"});
+            
+            M = s1.transform().globalMatrix;
+            console.log(M.clone());
+            //s1.animate({transform: "r30,0,0"}, 1000);
+            s1.rotate(10,[0,0]);
+            M2 = s1.transform().globalMatrix;
+            console.log(M2.clone());
+            
+            
+
 
             }
 
 
         </script>
+
+        <!--<span class='mathquill-embedded-latex' >\frac{x^2}3</span>-->
 
     </head>
     <body>
